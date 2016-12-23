@@ -13,13 +13,13 @@
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="online-status-icon.html">
     <style>
-      .center-white-on-blue {
-        background-color: #3ea1e6;
+      .center-white-on-black {
+        background-color: #000;
         color: #fff;
         text-align: center
       }
     </style>
-    <div class="center-white-on-blue">
+    <div class="center-white-on-black">
       <next-code-block></next-code-block>
     </div>
   </template>
@@ -34,8 +34,4 @@
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--offline-status-color` | The color of the icon when offline | `#db5656`
-
-@element online-status-icon
-
-@demo demo/index.html
+`--offline-status-color` | The color of the icon when offline | `#FF0300`
