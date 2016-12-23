@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`online-status-icon`
+Display current online staus
+
+@demo demo/index.html 
+-->
+
+<dom-module id="online-status-icon">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'online-status-icon',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'online-status-icon',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
