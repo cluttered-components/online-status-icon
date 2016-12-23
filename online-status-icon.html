@@ -1,10 +1,23 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../app-storage/app-network-status-behavior.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-tooltip/paper-tooltip.html">
 
 <!--
 `online-status-icon`
 Display current online staus
 
-@demo demo/index.html 
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--offline-status-color` | The color of the icon when offline | `#db5656`
+
+@element online-status-icon
+@demo demo/index.html
 -->
 
 <dom-module id="online-status-icon">
@@ -13,22 +26,44 @@ Display current online staus
       :host {
         display: block;
       }
+
+      paper-icon-button:hover {
+        cursor: default;
+      }
+
+      [offline] {
+        color: var(--offline-status-color, #db5656);
+      }
     </style>
-    <h2>Hello [[prop1]]</h2>
+
+    <div>
+      <!-- Online -->
+      <template is="dom-if" if="[[online]]" restamp="true">
+        <paper-icon-button icon="cloud" noink="true"></paper-icon-button>
+        <paper-tooltip>Online</paper-tooltip>
+      </template>
+      <!-- Offline -->
+      <template is="dom-if" if="[[!online]]" restamp="true">
+        <paper-icon-button icon="cloud-off" noink="true" offline></paper-icon-button>
+        <paper-tooltip>Offline</paper-tooltip>
+      </template>
+    </div>
+
   </template>
 
   <script>
-    Polymer({
+    (function() {
+      'use strict';
 
-      is: 'online-status-icon',
+      Polymer({
 
-      properties: {
-        prop1: {
-          type: String,
-          value: 'online-status-icon',
-        },
-      },
+        is: 'online-status-icon',
 
-    });
+        /** @polymerBehavior */
+        behaviors: [
+          Polymer.AppNetworkStatusBehavior
+        ]
+      });
+    })();
   </script>
 </dom-module>

@@ -18,11 +18,26 @@
   <body>
     <div class="vertical-section-container centered">
       <h3>Basic online-status-icon demo</h3>
-      <demo-snippet>
+      <demo-snippet class="centered-demo">
         <template>
           <online-status-icon></online-status-icon>
         </template>
       </demo-snippet>
+
+        <h3>Modified color online-status-icon demo</h3>
+        <demo-snippet class="centered-demo">
+          <template>
+            <style>
+              [white-on-blue] {
+                background-color: #3ea1e6;
+                color: #fff;
+              }
+            </style>
+            <div white-on-blue>
+              <online-status-icon></online-status-icon>
+            </div>
+          </template>
+        </demo-snippet>
     </div>
   </body>
 </html>
